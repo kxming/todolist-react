@@ -1,59 +1,33 @@
 import React from 'react';
-import { Layout, Menu, Icon } from 'antd';
+import {Layout, Menu, Icon, Breadcrumb, Input} from 'antd';
 import './layout.less';
+import MainHeader from "./header/header";
+import MainMenu from "./menu/menu";
 
-const { Header, Sider, Content } = Layout;
+const {SubMenu} = Menu;
+const {Header, Sider, Content, Footer} = Layout;
+const {Search} = Input;
 
 export default class MainLayout extends React.Component {
-    state = {
-        collapsed: false,
-    };
-
-    toggle = () => {
-        this.setState({
-            collapsed: !this.state.collapsed,
-        });
-    };
 
     render() {
         return (
             <Layout>
-                <Sider trigger={null} collapsible collapsed={this.state.collapsed} style={{ background: '#fff' }}>
-                    <div className="logo" />
-                    <Menu mode="inline" defaultSelectedKeys={['1']}>
-                        <Menu.Item key="1">
-                            <Icon type="user" />
-                            <span>nav 1</span>
-                        </Menu.Item>
-                        <Menu.Item key="2">
-                            <Icon type="video-camera" />
-                            <span>nav 2</span>
-                        </Menu.Item>
-                        <Menu.Item key="3">
-                            <Icon type="upload" />
-                            <span>nav 3</span>
-                        </Menu.Item>
-                    </Menu>
-                </Sider>
-                <Layout>
-                    <Header style={{ background: '#fff', padding: 0 }}>
-                        <Icon
-                            className="trigger"
-                            type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
-                            onClick={this.toggle}
-                        />
-                    </Header>
-                    <Content
-                        style={{
-                            margin: '24px 16px',
-                            padding: 24,
-                            background: '#fff',
-                            minHeight: 280,
-                        }}
-                    >
-                        Content
-                    </Content>
-                </Layout>
+                <MainHeader/>
+                <Content style={{padding: '0 50px'}}>
+                    <Breadcrumb style={{margin: '16px 0'}}>
+                        <Breadcrumb.Item>Home</Breadcrumb.Item>
+                        <Breadcrumb.Item>List</Breadcrumb.Item>
+                        <Breadcrumb.Item>App</Breadcrumb.Item>
+                    </Breadcrumb>
+                    <Layout style={{padding: '24px 0'}}>
+                        <Sider width={200}>
+                            <MainMenu/>
+                        </Sider>
+                        <Content style={{padding: '0 24px', minHeight: 280, background: '#f8f9fd'}}>Content</Content>
+                    </Layout>
+                </Content>
+                <Footer style={{textAlign: 'center'}}>Ant Design ©2018 Created by Ant UED</Footer>
             </Layout>
         );
     }
