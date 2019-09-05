@@ -1,5 +1,6 @@
 import React from 'react';
 import { Icon, Menu } from 'antd';
+import { Link } from 'react-router-dom';
 
 export default class MainMenu extends React.Component {
   render():
@@ -20,36 +21,52 @@ export default class MainMenu extends React.Component {
         style={{ border: 'none' }}
       >
         <Menu.Item key="appstore">
-          <Icon type="appstore" theme="filled" />
-          DashBoard
+          <Link to="/">
+            <Icon type="appstore" theme="filled" />
+            DashBoard
+          </Link>
         </Menu.Item>
         <Menu.Item key="mail">
-          <Icon type="mail" theme="filled" />
-          Emails
+          <Link to="mail">
+            <Icon type="mail" theme="filled" />
+            Emails
+          </Link>
         </Menu.Item>
         <Menu.Item key="file">
-          <Icon type="file" theme="filled" />
-          Invoice
+          <Link to="file">
+            <Icon type="file" theme="filled" />
+            Invoice
+          </Link>
         </Menu.Item>
         <Menu.Item key="cloud">
-          <Icon type="cloud" theme="filled" />
-          Files
+          <Link to="cloud">
+            <Icon type="cloud" theme="filled" />
+            Files
+          </Link>
         </Menu.Item>
         <Menu.Item key="fire">
-          <Icon type="fire" theme="filled" />
-          Events
+          <Link to="fire">
+            <Icon type="fire" theme="filled" />
+            Events
+          </Link>
         </Menu.Item>
         <Menu.Item key="team">
-          <Icon type="team" />
-          Teams
+          <Link to="team">
+            <Icon type="team" />
+            Teams
+          </Link>
         </Menu.Item>
         <Menu.Item key="calendar">
-          <Icon type="calendar" theme="filled" />
-          Calendars
+          <Link to="calendar">
+            <Icon type="calendar" theme="filled" />
+            Calendars
+          </Link>
         </Menu.Item>
         <Menu.Item key="setting">
-          <Icon type="setting" theme="filled" />
-          Settings
+          <Link to="setting">
+            <Icon type="setting" theme="filled" />
+            Settings
+          </Link>
         </Menu.Item>
       </Menu>
     );

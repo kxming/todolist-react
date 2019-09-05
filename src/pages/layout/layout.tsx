@@ -1,9 +1,11 @@
 import React from 'react';
 import { Layout } from 'antd';
+import { Switch, Route } from 'react-router-dom';
 import './layout.less';
 import MainHeader from './header/header';
 import MainMenu from './menu/menu';
 import User from './user/user';
+import Dashborad from '../dashboard/dashborad';
 
 const { Sider, Content, Footer } = Layout;
 
@@ -21,13 +23,15 @@ export default class MainLayout extends React.Component {
             <Content
               style={{
                 margin: '0 24px',
-                padding: 10,
+                padding: 15,
                 minHeight: 280,
                 background: '#f8f9fd',
                 borderRadius: 30
               }}
             >
-              Content
+              <Switch>
+                <Route exact path="/" component={Dashborad} />
+              </Switch>
             </Content>
           </Layout>
         </Content>
