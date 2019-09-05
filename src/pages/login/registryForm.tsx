@@ -12,6 +12,7 @@ import {
   Button,
   AutoComplete
 } from 'antd';
+import { FormComponentProps } from 'antd/lib/form';
 
 const { Option } = Select;
 const AutoCompleteOption = AutoComplete.Option;
@@ -51,27 +52,27 @@ const residences = [
   }
 ];
 
-class RegistryForm extends React.Component {
+class RegistryForm extends React.Component<FormComponentProps> {
   state = {
     confirmDirty: false,
     autoCompleteResult: []
   };
 
-  handleSubmit = e => {
+  handleSubmit = (e: any) => {
     e.preventDefault();
-    this.props.form.validateFieldsAndScroll((err, values) => {
+    this.props.form.validateFieldsAndScroll((err: any, values: any) => {
       if (!err) {
         console.log('Received values of form: ', values);
       }
     });
   };
 
-  handleConfirmBlur = e => {
+  handleConfirmBlur = (e: any) => {
     const { value } = e.target;
     this.setState({ confirmDirty: this.state.confirmDirty || !!value });
   };
 
-  compareToFirstPassword = (rule, value, callback) => {
+  compareToFirstPassword = (rule: any, value: any, callback: any) => {
     const { form } = this.props;
     if (value && value !== form.getFieldValue('password')) {
       callback('Two passwords that you enter is inconsistent!');
@@ -80,7 +81,7 @@ class RegistryForm extends React.Component {
     }
   };
 
-  validateToNextPassword = (rule, value, callback) => {
+  validateToNextPassword = (rule: any, value: any, callback: any) => {
     const { form } = this.props;
     if (value && this.state.confirmDirty) {
       form.validateFields(['confirm'], { force: true });
@@ -88,8 +89,8 @@ class RegistryForm extends React.Component {
     callback();
   };
 
-  handleWebsiteChange = value => {
-    let autoCompleteResult;
+  handleWebsiteChange = (value: any) => {
+    let autoCompleteResult: any;
     if (!value) {
       autoCompleteResult = [];
     } else {
@@ -272,4 +273,4 @@ class RegistryForm extends React.Component {
   }
 }
 
-const WrappedRegistrationForm = Form.create({ name: 'register' })(RegistryForm);
+export default Form.create({ name: 'register' })(RegistryForm);

@@ -1,25 +1,43 @@
 {
-  "compilerOptions": {
-    "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
+  "defaultSeverity": "error",
+  "extends": ["tslint:recommended", "tslint-config-prettier"],
+  "jsRules": {},
+  "rules": {
+    "await-promise": [
+      true,
+      "Bluebird",
+      "Thenable",
+      "SchemaBuilder",
+      "RequestPromise"
     ],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react"
-  },
-  "include": [
-    "src"
-  ]
+    "no-floating-promises": [
+      true,
+      "Bluebird",
+      "Thenable",
+      "SchemaBuilder",
+      "RequestPromise"
+    ],
+    "promise-function-async": true,
+    "ordered-imports": false,
+    "no-console": false,
+    "comment-format": false,
+    "no-var-requires": false,
+    "interface-name": false,
+    "no-implicit-dependencies": false,
+    "max-classes-per-file": false,
+    "no-duplicate-imports": false,
+    "no-unused-expression": [true, "allow-fast-null-checks"],
+    "no-empty-interface": false,
+    "no-switch-case-fall-through": true,
+    "object-literal-sort-keys": false,
+    "member-access": false,
+    "member-ordering": false,
+    "strict-type-predicates": true,
+    "strict-boolean-expressions": [
+      true,
+      "allow-null-union",
+      "allow-undefined-union",
+      "ignore-rhs"
+    ]
+  }
 }
