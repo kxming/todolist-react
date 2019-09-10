@@ -8,6 +8,7 @@ import './login.less';
 import loginSrc from '../../assets/thumd.jpg';
 
 export default class Login extends React.Component {
+  login: boolean = true;
   render() {
     return (
       <div className="login">
@@ -17,13 +18,21 @@ export default class Login extends React.Component {
           align="middle"
           style={{ height: '100%' }}
         >
-          <Col span={12} style={{ display: 'flex', justifyContent: 'center' }}>
+          <Col
+            span={12}
+            style={{ display: 'flex', justifyContent: 'center' }}
+            className={this.login ? '' : 'islogin'}
+          >
             <RegistryForm />
           </Col>
           <Col span={12} style={{ display: 'flex', justifyContent: 'center' }}>
             <img src={loginSrc} alt="" />
           </Col>
-          <Col span={12} style={{ display: 'flex', justifyContent: 'center' }}>
+          <Col
+            span={12}
+            style={{ display: 'flex', justifyContent: 'center' }}
+            className={this.login ? 'islogin' : ''}
+          >
             <LoginForm />
           </Col>
         </Row>
